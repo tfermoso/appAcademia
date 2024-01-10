@@ -69,6 +69,8 @@ public class Main {
                     dni=leer.nextLine();
                     System.out.println(academia.borrarAlumnoPorDNI(dni));
                     break;
+                case "4":
+                    break;
                 case "9":
                     System.out.println("Info de la Academia");
                     System.out.println(academia.toString());
