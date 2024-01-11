@@ -113,8 +113,16 @@ public class Main {
                 academia.editarNombreAlumnoPorDNI(dni,nuevoNombre);
                 break;
             case "2":
+                System.out.println("El alumno que vas a editar es: "+academia.buscarPorDNI(dni));
+                System.out.println("Nuevo apellido");
+                nuevoApellido=leer.nextLine();
+                academia.editarApellidosAlumnoPorDNI(dni,nuevoApellido);
                 break;
             case "3":
+                System.out.println("El alumno que vas a editar es: "+academia.buscarPorDNI(dni));
+                System.out.println("Fecha de nacimiento: dd-MM-yyyy");
+                nuevaFecha=leer.nextLine();
+                academia.editarFechaNacimientoAlumnoPorDNI(dni,nuevaFecha);
                 break;
             default:
                 System.out.println("Opción no válida");

@@ -114,4 +114,26 @@ public class Academia {
                 }
         }
     }
+
+    public void editarApellidosAlumnoPorDNI(String dni, String nuevoApellido) {
+        for (int i = 0; i < alumnos.length; i++) {
+            if (alumnos[i] != null)
+                if (dni.equals(alumnos[i].getDni())) {
+                    alumnos[i].setApellidos(nuevoApellido);
+                }
+        }
+    }
+
+    public void editarFechaNacimientoAlumnoPorDNI(String dni, String nuevaFecha) {
+        int year,mes,dia;
+        dia= Integer.parseInt(nuevaFecha.split("-")[0]);
+        mes= Integer.parseInt(nuevaFecha.split("-")[1]);
+        year=Integer.parseInt(nuevaFecha.split("-")[2]);
+        for (int i = 0; i < alumnos.length; i++) {
+            if (alumnos[i] != null)
+                if (dni.equals(alumnos[i].getDni())) {
+                    alumnos[i].setFecha_nacimiento(year,mes,dia);
+                }
+        }
+    }
 }
