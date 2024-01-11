@@ -36,8 +36,10 @@ public class Main {
                 1. Alta alumno
                 2. Buscar alumnos por DNI
                 3. Borrar alumno por DNI
+                4. Editar alumno por DNI
                 9. Mostrar información de la academia
                 10. Salir""";
+
         do {
             System.out.println(MENU);
             opcion = leer.nextLine();
@@ -70,6 +72,14 @@ public class Main {
                     System.out.println(academia.borrarAlumnoPorDNI(dni));
                     break;
                 case "4":
+                    System.out.println("Editar datos Alumno");
+                    System.out.println("Introduce el DNI del alumno");
+                    dni=leer.nextLine();
+                    if(academia.buscarAlumnoPorDNI(dni)){
+                        editarAlumno(leer,academia,dni);
+                    }else{
+                        System.out.println("No hay ningún alumno con ese dni");
+                    }
                     break;
                 case "9":
                     System.out.println("Info de la Academia");
@@ -84,6 +94,31 @@ public class Main {
 
         } while (!opcion.equals("10"));
         System.out.println("CHAO...");
+    }
+
+    private static void editarAlumno(Scanner leer, Academia academia, String dni) {
+        String MENUEDITAR= """
+                1. Editar Nombre
+                2. Editar Apellidos
+                3. Editar Fecha Nacimiento
+                """;
+        String opcionEditar,nuevoNombre,nuevoApellido,nuevaFecha;
+        System.out.println(MENUEDITAR);
+        opcionEditar=leer.nextLine();
+        switch (opcionEditar){
+            case "1":
+                System.out.println("El alumno que vas a editar es: "+academia.buscarPorDNI(dni));
+                System.out.println("Nuevo nombre");
+                nuevoNombre=leer.nextLine();
+                academia.editarNombreAlumnoPorDNI(dni,nuevoNombre);
+                break;
+            case "2":
+                break;
+            case "3":
+                break;
+            default:
+                System.out.println("Opción no válida");
+        }
     }
 
     private static boolean nuevoAlumno(Scanner leer, Academia academia) {

@@ -96,4 +96,22 @@ public class Academia {
         return comprobacion;
     }
 
+    public boolean buscarAlumnoPorDNI(String dni) {
+        for (int i = 0; i < alumnos.length; i++) {
+            if (alumnos[i] != null)
+                if (dni.equals(alumnos[i].getDni())) {
+                    return true;
+                }
+        }
+        return false;
+    }
+
+    public void editarNombreAlumnoPorDNI(String dni, String nuevoNombre) {
+        for (int i = 0; i < alumnos.length; i++) {
+            if (alumnos[i] != null)
+                if (dni.equals(alumnos[i].getDni())) {
+                   alumnos[i].setNombre(nuevoNombre);
+                }
+        }
+    }
 }
