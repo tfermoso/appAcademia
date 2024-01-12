@@ -2,7 +2,6 @@ package com.ceica;
 
 
 import com.ceica.modelos.Academia;
-import com.ceica.modelos.Alumno;
 
 import java.util.Scanner;
 

@@ -1,12 +1,24 @@
 package com.ceica.modelos;
 
 import java.util.Arrays;
-
+/**
+ * Clase para gestionar una academia,
+ * Tiene un nombre y un listado de alumnos
+@Author: Tomás Fermoso
+ **/
 public class Academia {
+
+    /**
+     *
+     */
     private String nombre;
     private Alumno[] alumnos;
 
 
+    /**
+     * @param nombre Nombre de la academia
+     * @param numero_alumnos Número de alumnos que tendra el array de alumnos
+     */
     public Academia(String nombre, int numero_alumnos) {
         this.nombre = nombre;
         this.alumnos = new Alumno[numero_alumnos];
@@ -31,6 +43,13 @@ public class Academia {
                 '}';
     }
 
+    /**
+     * @param nombre Nombre del alumno
+     * @param apellidos Apellidos del alumno
+     * @param dni DNI del alumno
+     * @param fechaNacimiento Fecha de nacimiento del alumno
+     * @return True si puede añadir al alumno y False si la academia esta llena
+     */
     public boolean altaAlumno(String nombre, String apellidos, String dni, String fechaNacimiento) {
         int year,mes,dia;
         dia= Integer.parseInt(fechaNacimiento.split("-")[0]);
