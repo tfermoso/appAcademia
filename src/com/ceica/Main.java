@@ -95,6 +95,11 @@ public class Main {
         System.out.println("CHAO...");
     }
 
+    /**
+     * @param leer
+     * @param academia
+     * @param dni
+     */
     private static void editarAlumno(Scanner leer, Academia academia, String dni) {
         String MENUEDITAR= """
                 1. Editar Nombre

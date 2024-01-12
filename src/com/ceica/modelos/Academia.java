@@ -124,22 +124,31 @@ public class Academia {
         }
         return false;
     }
-
-    public void editarNombreAlumnoPorDNI(String dni, String nuevoNombre) {
+    private Alumno buscarAPorDNI(String dni){
         for (int i = 0; i < alumnos.length; i++) {
             if (alumnos[i] != null)
                 if (dni.equals(alumnos[i].getDni())) {
-                   alumnos[i].setNombre(nuevoNombre);
+                    return alumnos[i];
                 }
+        }
+        return null;
+    }
+
+    /**
+     * @param dni
+     * @param nuevoNombre
+     */
+    public void editarNombreAlumnoPorDNI(String dni, String nuevoNombre) {
+        Alumno alumno=buscarAPorDNI(dni);
+        if(alumno!=null){
+            alumno.setNombre(nuevoNombre);
         }
     }
 
     public void editarApellidosAlumnoPorDNI(String dni, String nuevoApellido) {
-        for (int i = 0; i < alumnos.length; i++) {
-            if (alumnos[i] != null)
-                if (dni.equals(alumnos[i].getDni())) {
-                    alumnos[i].setApellidos(nuevoApellido);
-                }
+        Alumno alumno=buscarAPorDNI(dni);
+        if(alumno!=null){
+            alumno.setApellidos(nuevoApellido);
         }
     }
 
@@ -148,11 +157,7 @@ public class Academia {
         dia= Integer.parseInt(nuevaFecha.split("-")[0]);
         mes= Integer.parseInt(nuevaFecha.split("-")[1]);
         year=Integer.parseInt(nuevaFecha.split("-")[2]);
-        for (int i = 0; i < alumnos.length; i++) {
-            if (alumnos[i] != null)
-                if (dni.equals(alumnos[i].getDni())) {
-                    alumnos[i].setFecha_nacimiento(year,mes,dia);
-                }
-        }
+        Alumno alumno=buscarAPorDNI(dni);
+        alumno.setFecha_nacimiento(year,mes,dia);
     }
 }
